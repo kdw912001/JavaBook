@@ -1,39 +1,41 @@
-package ch11;
+ï»¿package ch11;
 import java.util.*;
 public class ArrayListEx1 {
 
 	
 	public static void main(String[] args) {
 		ArrayList list1 = new ArrayList(10);
-		list1.add(new Integer(5));
+		list1.add(new Integer(5));//ìˆœì„œëŒ€ë¡œ ê°’ ì…ë ¥
 		list1.add(new Integer(4));
 		list1.add(new Integer(2));
 		list1.add(new Integer(0));
 		list1.add(new Integer(1));
 		list1.add(new Integer(3));
 		
-		ArrayList list2 = new ArrayList(list1.subList(1, 4));
+		ArrayList list2 = new ArrayList(list1.subList(1, 4));//420
 		print(list1, list2);
+		//list1:[5,4,2,0,1,3] list2:[4, 2, 0]
 		
 		System.out.println("list1.containAll(list2): "+list1.containsAll(list2));
-
+		//list1ì´ list2ì˜ ëª¨ë“  ìš”ì†Œë¥¼ ë‹´ê³  ìˆëŠ”ì§€
+		
 		list2.add("B");
 		list2.add("C");
 		
 		list2.add(3,"A");
-		print(list1,list2);
+		print(list1,list2);//list1:[5, 4, 2, 0, 1, 3] list2:[4, 2, 0, A, B, C]
 		
-		//list1¿¡¼­ list2¿Í °ãÄ¡´Â ºÎºĞ¸¸ ³²±â°í ³ª¸ÓÁö´Â »èÁ¦ÇÑ´Ù.
-		System.out.println("list1.retainAll(list2) :"+list1.retainAll(list2));
+		//list1ì—ì„œ list2ì™€ ê²¹ì¹˜ëŠ” ë¶€ë¶„ë§Œ ë‚¨ê¸°ê³  ë‚˜ë¨¸ì§€ëŠ” ì‚­ì œí•œë‹¤.
+		System.out.println("list1.retainAll(list2) :"+list1.retainAll(list2));//true
 		
-		print(list1, list2);
+		print(list1, list2);//list1:[4, 2, 0] list2:[4, 2, 0, A, B, C]
 		
-		//list2¿¡¼­ list1¿¡ Æ÷ÇÔµÈ °´Ã¼µéÀ» »èÁ¦ÇÑ´Ù.
+		//list2ì—ì„œ list1ì— í¬í•¨ëœ ê°ì²´ë“¤ì„ ì‚­ì œí•œë‹¤.
 		for(int i=list2.size()-1;i>=0;i--) {
 			if(list1.contains(list2.get(i)))
 				list2.remove(i);
 		}
-		print(list1, list2);
+		print(list1, list2);//list1:[4, 2, 0] list2:[A, B, C]
 	}
 	
 	static void print(ArrayList list1, ArrayList list2) {

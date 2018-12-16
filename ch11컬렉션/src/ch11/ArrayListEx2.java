@@ -1,26 +1,33 @@
-package ch11;
+ï»¿package ch11;
 import java.util.*;
 public class ArrayListEx2 {
 
 	public static void main(String[] args) {
-		final int LIMIT = 10; //ÀÚ¸£°íÀÚ ÇÏ´Â ±ÛÀÚÀÇ °¹¼ö¸¦ ÁöÁ¤ÇÑ´Ù.
+		final int LIMIT = 10; //ìë¥´ê³ ì í•˜ëŠ” ê¸€ìì˜ ê°¯ìˆ˜ë¥¼ ì§€ì •í•œë‹¤.
 		String source = "0123456789abcdefghijABCDEFGHIJ!@#$%^&*()ZZZ";
 		int length = source.length();
-		System.out.println(length);
-		List list = new ArrayList(length/LIMIT + 10); //Å©±â¸¦ ¾à°£ ¿©À¯ ÀÖ°Ô Àâ´Â´Ù.
+		System.out.println("ë¬¸ìì—´ ê¸¸ì´ : "+length);
+		List list = new ArrayList(length/LIMIT + 10); //í¬ê¸°ë¥¼ ì•½ê°„ ì—¬ìœ  ìˆê²Œ ì¡ëŠ”ë‹¤.
 		// 43/10 +10=14
 		
 		for(int i=0; i<length; i+=LIMIT) {
-			if(i+LIMIT < length) //±æÀÌ°¡ 40º¸´Ù ÀÛ°Å³ª °°À» ‹š
+			if(i+LIMIT < length) //ê¸¸ì´ê°€ 40ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ì„ Â‹Âš
 				list.add(source.substring(i, i+LIMIT));
-			else//±æÀÌ°¡ 40ÃÊ°ú ½Ã 
+			else//ê¸¸ì´ê°€ 40ì´ˆê³¼ ì‹œ 
 				list.add(source.substring(i));
+				//substring APIë³´ë©´ ië²ˆì§¸ ì¸ë±ìŠ¤ ì´í›„ë¶€í„° ëª¨ë‘ ë¦¬í„´
 		}
 		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i));
 		}
-
+		/*ë¬¸ìì—´ ê¸¸ì´ : 43
+		0123456789
+		abcdefghij
+		ABCDEFGHIJ
+		!@#$%^&*()
+		ZZZ*/
+		
 	}
 
 }
