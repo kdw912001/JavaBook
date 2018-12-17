@@ -1,6 +1,6 @@
-package ch11;
+ï»¿package ch11;
 import java.util.*;
-//MyVectorÅ¬·¡½º¸¦ »ó¼Ó¹Ş´Â »õ·Î¿î Å¬·¡½º°¡ Iterator¸¦ ±¸Çö
+//MyVectorí´ë˜ìŠ¤ë¥¼ ìƒì†ë°›ëŠ” ìƒˆë¡œìš´ í´ë˜ìŠ¤ê°€ Iteratorë¥¼ êµ¬í˜„
 public class MyVector2 implements Iterator{
 	int cursor = 0;
 	int lastRet = -1;
@@ -21,7 +21,7 @@ public class MyVector2 implements Iterator{
 		return "("+tmp+")";
 	}
 	public Iterator iterator() {
-		cursor = 0; //cursor¿Í lastRet¸¦ ÃÊ±âÈ­ÇÑ´Ù.
+		cursor = 0; //cursorì™€ lastRetë¥¼ ì´ˆê¸°í™”í•œë‹¤.
 		lastRet = -1;
 		return this;
 	
@@ -35,13 +35,13 @@ public class MyVector2 implements Iterator{
 		return next;
 	}
 	public void remove() {
-		//´õÀÌ»ó »èÁ¦ÇÒ °ÍÀÌ ¾øÀ¸¸é IllegalStateException¸¦ ¹ß»ı½ÃÅ²´Ù.
+		//ë”ì´ìƒ ì‚­ì œí•  ê²ƒì´ ì—†ìœ¼ë©´ IllegalStateExceptionë¥¼ ë°œìƒì‹œí‚¨ë‹¤.
 		if(lastRet==-1) {
 			throw new IllegalStateException();
 		}else {
 			remove(lastRet);
-			cursor--; //»èÁ¦ ÈÄ¿¡ cursorÀÇ À§Ä¡¸¦ °¨¼Ò½ÃÅ²´Ù
-			lastRet = -1; //lastRetÀÇ °ªÀ» ÃÊ±âÈ­ÇÑ´Ù.
+			cursor--; //ì‚­ì œ í›„ì— cursorì˜ ìœ„ì¹˜ë¥¼ ê°ì†Œì‹œí‚¨ë‹¤
+			lastRet = -1; //lastRetì˜ ê°’ì„ ì´ˆê¸°í™”í•œë‹¤.
 		}
 	}
 
