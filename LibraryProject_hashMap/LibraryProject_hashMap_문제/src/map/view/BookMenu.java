@@ -3,6 +3,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Map.Entry;
@@ -94,7 +95,20 @@ public class BookMenu {
 		 * 2_2. bookMap가 "비어있지 않은 경우" -->   keySet() 또는 entrySet()을 통해 bookMap 안의 Book 객체들 출력
 		 * 
 		 */
-		
+		HashMap<Integer, Book> bookMap = bc.selectMap();
+		if(bookMap.isEmpty())
+			System.out.println("존재하는 도서가 없습니다.");
+		else {
+			Set<Map.Entry<Integer, Book>> entries = bookMap.entrySet();
+			Iterator<Map.Entry<Integer, Book>> entryIter = entries.iterator();
+			while(entryIter.hasNext()) {
+				Map.Entry<Integer, Book> entry = entryIter.next();
+				Integer key = entry.getKey();
+				Book b = entry.getValue(); 
+				System.out.println(key+"="+b.toString());
+			}
+		}
+			
 		// 위의 순서대로 작성해보세요 ~ 화이팅^^
 	}
 	
@@ -115,7 +129,23 @@ public class BookMenu {
 		 * 3_2. searchMap가 "비어있지 않은 경우" -->  반복자을 통해 searchMap 안의 Book 객체들 출력
 		 * 
 		 */
-
+		System.out.print("검색할 도서명 키워드 입력 : ");
+		String keyword = sc.nextLine();
+		HashMap<Integer, Book> searchMap = bc.searchBook(keyword);
+		if(searchMap.isEmpty())
+			System.out.println("검색 결과가 없습니다.");
+		else {
+			Set<Map.Entry<Integer, Book>> entries = searchMap.entrySet();
+			Iterator<Map.Entry<Integer, Book>> entryIter = entries.iterator();
+			while(entryIter.hasNext()) {
+				Map.Entry<Integer, Book> entry = entryIter.next();
+				Integer key = entry.getKey();
+				Book b = entry.getValue();
+				System.out.println(key+" = "+b.toString());
+			}
+		}
+			
+		
 		// 위의 순서대로 작성해보세요 ~ 얼마 안남았어요~!!
 		
 	}
@@ -134,7 +164,13 @@ public class BookMenu {
 		 * 3_2. remove가 존재하지 않은 경우 -->  "삭제할 도서를 찾지 못했습니다." 라는 알람 문구 출력
 		 *  
 		 */
-
+		System.out.print("삭제할 도서번호 입력  : "); 
+		int no = sc.nextInt();
+		Book remove = bc.deleteBook(no);
+		if(remove != null)
+			System.out.println("성공적으로 삭제되었습니다.");
+		else
+			System.out.println("삭제할 도서를 찾지 못했습니다.");
 		// 위의 순서대로 작성해보세요 ~ 이제 거의 끝났어요~!!
 		
 	}
