@@ -64,8 +64,15 @@ public class BookController {
 		 * 
 		 * 3. remove의 주소 값 반환 
 		 */
-		
-		return null;   // 이 부분 수정해야되요~! 우선은 null로 해놨어요
+		Book remove = null;
+		for(int i=0; i<bookList.size();i++) {
+			if(bookList.get(i).getAuthor().equals(author) && bookList.get(i).getTitle().equals(title)) {
+				remove = bookList.get(i);
+				bookList.remove(bookList.get(i));
+				
+			}
+		}
+		return remove;   // 이 부분 수정해야되요~! 우선은 null로 해놨어요
 	}
 	
 	

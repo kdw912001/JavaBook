@@ -28,6 +28,8 @@ public class BookController {
 		 * 1. 전달받은 bk를 bookMap에 키값(count)과 함께 "추가 "하기
 		 * 2. count 증가시켜주기
 		 */
+		bookMap.put(count, bk);
+		count++;
 	}
 	
 	

@@ -26,6 +26,7 @@ public class BookMenu {
 			System.out.println("3. 도서 검색 조회");
 			System.out.println("4. 도서 삭제하기");
 			
+			
 			System.out.println("0. 프로그램 종료하기");
 			
 			System.out.print("메뉴 선택 : ");
@@ -57,7 +58,26 @@ public class BookMenu {
 		 * 6. bc(BookController)의 insertBook으로 위의 Book 객체 전달
 		 * 
 		 */
+		System.out.print("도서명 입력 : ");
+		String title = sc.nextLine();
+		System.out.print("저자명 입력 : ");
+		String author = sc.nextLine();
+		System.out.print("장르 입력 : ");
+		int category = sc.nextInt();
+		String category1 = "";
+	
+		switch(category) {
+			case 1: category1 = "인문"; break;
+			case 2: category1 = "자연과학"; break;
+			case 3: category1 = "의료"; break;
+			case 4: category1 = "기타"; break;
+			default : System.out.println("다시 입력하시오");
+			}
 		
+		System.out.print("가격 입력 : ");
+		int price = sc.nextInt();
+		Book b = new Book(title,author,category1,price); 
+		bc.insertBook(b);
 		// 위의 순서대로 작성해보세용 ~ 찡긋^^
 		
 	}

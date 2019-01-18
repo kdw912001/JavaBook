@@ -142,6 +142,7 @@ public class BookMenu {
 			for(int i=0; i<searchList.size();i++) {
 				System.out.println(searchList.get(i));
 			}
+			
 		}
 		// 위의 순서대로 작성해보세요 ~ 얼마 안남았어요~!!
 	}
@@ -161,7 +162,16 @@ public class BookMenu {
 		 * remove가 존재하지 않은 경우 --> "삭제할 도서를 찾지 못했습니다." 라는 알람 문구 출력
 		 * 
 		 */
-		SYstem.
+		System.out.print("삭제할 도서명 입력 : ");
+		String title = sc.nextLine();
+		System.out.print("삭제할 저자명 입력 : ");
+		String author = sc.nextLine();
+		if(bc.deleteBook(title, author) != null) {
+			System.out.println("성공적으로 삭제되었습니다.");
+		}else
+			System.out.println("삭제할 도서를 찾지 못했습니다.");
+		
+		
 		// 위의 순서대로 작성해보세요 ~ 이제 거의 끝났어요~!!
 	}
 
